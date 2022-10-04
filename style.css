@@ -19,6 +19,8 @@
     width:50%;
     text-align: left;
     color: purple;
+    background-color: transparent;
+    border-color: transparent;
 }
 header{
     background:linear-gradient(to right, blue, grey);

@@ -15,12 +15,14 @@ response4.className = "ansbtn";
 var insertUser = document.createElement("input");
 var box = document.getElementById('container');
 var btn = document.getElementById('enterbtn');
+var highScoreBtn = document.getElementById('highscore');
 var correctAnswer=0;
 var time=60;
 var nameCount=0;
 var names = [];
 var scores = [];
-nameCount=localStorage.getItem("0");
+var nameCount=localStorage.getItem("0");
+
 if(nameCount == null){
     nameCount=0;
 }
@@ -79,9 +81,19 @@ function setTime() {
 
 function viewHighScores(){
     isRightAnswer.remove();
-    question.innerHTML = "HighScores";
     insertUser.remove();
     finalBtn.remove();
+    btn.remove();
+    
+    sectext.remove();
+    for(var i=container.children.length;i>1; i--){
+      
+      container.children[i].remove();
+      
+    }
+    container.append(question);
+    question.innerHTML = "HighScores";
+    
     
     for(var i=0; i<nameCount; i++){
 
@@ -94,6 +106,9 @@ function viewHighScores(){
         
     }
 }
+highScoreBtn.addEventListener("click",function(){
+  viewHighScores();
+});
    
 
 function endGame(){
@@ -103,7 +118,7 @@ function endGame(){
     response4.remove();
     isRightAnswer.innerHTML = "Insert initials below";
     question.innerHTML = "You finished the Quiz! Your score was " + String(time);
-    
+    time=0;
     container.append(insertUser);
     finalBtn.innerHTML = "Enter";
     localStorage.setItem("0", nameCount+1);
@@ -117,9 +132,11 @@ btn.addEventListener("click", function() {
 
 finalBtn.addEventListener("click", function() {
     
-    nameCount=nameCount+1;
-    localStorage.setItem(String(nameCount),finalBtn.parentElement.children[2].value+" "+String(time));
-    
+    nameCount=String(parseInt(nameCount)+1);
+     
+    localStorage.setItem(String(nameCount),insertUser.value+" "+String(time));
+    localStorage.setItem("0", nameCount);
+    console.log(nameCount);
     viewHighScores()
   });
 
@@ -128,7 +145,7 @@ response1.addEventListener("click", function() {
     if (correctAnswer!=1){
         isRightAnswer.innerHTML="Wrong";
         time=time-10;
-        console.log("wrong")
+       
     }
     else{
         isRightAnswer.innerHTML="Right";
@@ -146,7 +163,7 @@ response1.addEventListener("click", function() {
   response2.addEventListener("click", function() {
     if (correctAnswer!=2){
         isRightAnswer.innerHTML="Wrong";
-        console.log("wrong")
+        
         time=time-10;
     }
     else{
@@ -165,7 +182,7 @@ response1.addEventListener("click", function() {
   response3.addEventListener("click", function() {
     if (correctAnswer!=3){
         time=time-10;
-        console.log("wrong")
+        
         isRightAnswer.innerHTML="Wrong";
     }
     else{
@@ -186,7 +203,7 @@ response1.addEventListener("click", function() {
   response4.addEventListener("click", function() {
     if (correctAnswer!=4){
         time=time-10;
-        console.log("wrong")
+        
         isRightAnswer.innerHTML="Wrong";
     }
     else{
