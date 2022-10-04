@@ -1,0 +1,57 @@
+#timer{
+    
+    font-size: 30px;
+    float:right;
+    width:50%;
+    text-align: right;
+    
+
+}
+.ansbtn{
+    font-size: 200%;
+    margin-bottom: 20px;
+    background-color: purple;
+    border-radius: 25px;
+}
+#highscore{
+    font-size: 30px;
+    float:right;
+    width:50%;
+    text-align: left;
+    color: purple;
+}
+header{
+    background:linear-gradient(to right, blue, grey);
+    padding: 30px;
+    font-size: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+.container{
+    font-size: 30px;
+    text-align: center;
+    background-color: grey;
+    width:50%;
+    min-width:300px;
+    padding:20px;
+    
+}
+.main{
+    padding:20px;
+    display: flex;
+    justify-content: center;
+}
+.enterbtn{
+    background-color: black;
+    color:white;
+    width:10%;
+    height:10%;
+    min-width: 70px;
+}
+
+body {
+    min-height: 100%;
+    line-height: 1;
+    font-family: sans-serif;
+  }
